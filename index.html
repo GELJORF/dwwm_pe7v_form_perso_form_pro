@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création de comptes perso et pro</title>
+    <link rel="stylesheet" href="_css/style.css">
+    <script src="_js/main.js"></script>
+    <script src="_js/particulier.js"></script>
+</head>
+
+<body>
+    <form id="accountTypeSelector">
+        <label for="individualRadio">
+            Compte Particulier
+            <input type="radio" id="individualRadio" name="accountType" value="individual">
+        </label>
+        <label for="professionalRadio">
+            Compte Professionnel
+            <input type="radio" id="professionalRadio" name="accountType" value="professional">
+        </label>
+    </form>
+
+    <form id="individualForm" class="accountForm hidden">
+        <!-- Le formulaire Compte Particulier -->
+        <fieldset>
+            <legend>Compte Particulier</legend>
+            <label for="firstName">Prénom:</label>
+            <input type="text" id="firstName" name="firstName" required>
+            <span class="error" id="firstNameError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Informations personnelles</legend>
+            <label for="lastName">Nom :</label>
+            <input type="text" id="lastName" name="lastName" required>
+            <span class="error" id="lastNameError"></span>
+
+            <label for="gender">Genre :</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Sélectionnez votre genre</option>
+                <option value="male">Homme</option>
+                <option value="female">Femme</option>
+            </select>
+            <span class="error" id="genderError"></span>
+
+            <label for="email">Adresse email :</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error" id="emailError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Adresse postale</legend>
+            <label for="address">Adresse :</label>
+            <input type="text" id="privateAddress" name="address" required>
+            <span class="error" id="privateAddressError"></span>
+
+            <label for="postalCode">Code postal :</label>
+            <input type="text" id="privatePostalCode" name="postalCode" required pattern="\d{5}">
+            <span class="error" id="privatePostalCodeError"></span>
+
+            <label for="city">Ville :</label>
+            <input type="text" id="privateCity" name="city" required>
+            <span class="error" id="privateCityError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Numéros de téléphone</legend>
+            <label for="phoneNumberFixed">Numéro de téléphone fixe :</label>
+            <input type="tel" id="landLineNumber" name="landLineNumber" pattern="\d{10}">
+            <span class="error" id="landLineNumberError"></span>
+
+            <label for="phoneNumberMobile">Numéro de téléphone portable :</label>
+            <input type="tel" id="gsmNumber" name="gsmNumber" pattern="\d{10}">
+            <span class="error" id="gsmNumberError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Date de naissance</legend>
+            <label for="dateOfBirth">Date de naissance :</label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+            <span class="error" id="dateOfBirthError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Acceptation des conditions</legend>
+            <label>
+                <input type="checkbox" id="privateAcceptCGV" name="acceptCGV" required>
+                J'accepte les CGV
+            </label>
+
+            <label>
+                <input type="checkbox" id="privateAcceptMarketing" name="acceptMarketing">
+                J'accepte de recevoir des communications commerciales
+            </label>
+        </fieldset>
+
+        <input type="submit" value="Créer le compte">
+    </form>
+
+    <form id="professionalForm" class="accountForm hidden">
+        <!-- Le formulaire Compte Professionnel -->
+        <fieldset>
+            <legend>Compte Professionnel</legend>
+            <label for="companyName">Raison sociale:</label>
+            <input type="text" id="companyName" name="companyName" required>
+            <span class="error" id="companyNameError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Numéro de SIREN/SIRET</legend>
+            <label for="sirenNumber">Numéro de SIREN :</label>
+            <input type="text" id="sirenNumber" name="sirenNumber" required pattern="\d{9}">
+            <span class="error" id="sirenNumberError"></span>
+
+            <label for="siretNumber">Numéro de SIRET :</label>
+            <input type="text" id="siretNumber" name="siretNumber" required pattern="\d{14}">
+            <span class="error" id="siretNumberError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Informations de contact</legend>
+            <label for="contactEmail">Adresse mail de contact :</label>
+            <input type="email" id="contactEmail" name="contactEmail" required>
+            <span class="error" id="contactEmailError"></span>
+
+            <label for="contactPhone">Numéro de téléphone de contact :</label>
+            <input type="tel" id="contactPhone" name="contactPhone" required pattern="\d{10}">
+            <span class="error" id="contactPhoneError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Adresse postale</legend>
+            <label for="address">Adresse :</label>
+            <input type="text" id="address" name="address" required>
+            <span class="error" id="addressError"></span>
+
+            <label for="postalCode">Code postal :</label>
+            <input type="text" id="postalCode" name="postalCode" required pattern="\d{5}">
+            <span class="error" id="postalCodeError"></span>
+
+            <label for="city">Ville :</label>
+            <input type="text" id="city" name="city" required>
+            <span class="error" id="cityError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Numéro de TVA intracommunautaire</legend>
+            <label for="vatNumber">Numéro de TVA intracommunautaire :</label>
+            <input type="text" id="vatNumber" name="vatNumber" pattern="FR\d{2}\d{9}">
+            <span class="error" id="vatNumberError"></span>
+        </fieldset>
+
+        <fieldset>
+            <legend>Acceptation des conditions</legend>
+            <label>
+                <input type="checkbox" id="acceptCGV" name="acceptCGV" required>
+                J'accepte les CGV
+            </label>
+
+            <label>
+                <input type="checkbox" id="acceptMarketing" name="acceptMarketing">
+                J'accepte de recevoir des communications commerciales
+            </label>
+        </fieldset>
+
+        <input type="submit" value="Créer le compte">
+    </form>
+
+</body>
+
+</html>
