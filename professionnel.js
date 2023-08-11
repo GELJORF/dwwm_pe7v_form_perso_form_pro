@@ -47,17 +47,17 @@ function checkIfUserIsAtLeast13(event)
 
     const userDate = new Date(userBirthDate);
 
-    /* Premier cas : année de naissance < année courante - 13 */
+    /* 1e cas : année de naissance < année courante - 13 */
     if (userDate.getFullYear() < today.getFullYear() - 13) {
         return true;
     }
-    /* Deuxième cas : année de naissance = année courante - 13 
+    /* 2e cas : année de naissance = année courante - 13 
         et mois de naissance < mois en cours */
     if ((userDate.getFullYear() == today.getFullYear() - 13)
         && userDate.getMonth() < today.getMonth()) {
         return true;
     }
-    /* Troisième cas : année de naissance = année courante - 13 
+    /* 3e cas : année de naissance = année courante - 13 
         et mois de naissance = mois en cours
         et jour de naissance <= jour actuel */
     if ((userDate.getFullYear() == today.getFullYear() - 13)
